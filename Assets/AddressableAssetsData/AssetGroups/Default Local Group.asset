@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cc65b685912c0eb49af8b51726a0e774
+  m_SerializeEntries:
+  - m_GUID: e80c94d6091997a4a9e09fd1aa8f795a
+    m_Address: Assets/Prefabs/FloorTile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0ffe709e396d8364faf5e854423e85bf
+    m_Address: Assets/Prefabs/Creator.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1e1d0ba078c66304fb90311d5a51ebd5
+    m_Address: Assets/Prefabs/Conveyor.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bc3053a5446f1e44c94c0d4ea1f50daf
+    m_Address: Assets/Prefabs/Extractor.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 64e64015de1eb5f428b78bfd10af7dbc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c942b8a27adf0274fbeb71d5173c3650, type: 2}
+    - {fileID: 11400000, guid: 9aff86eda422fce4694e94992db92a41, type: 2}
