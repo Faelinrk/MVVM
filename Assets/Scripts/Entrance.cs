@@ -1,16 +1,22 @@
-using System;
+using Cysharp.Threading.Tasks;
+using UniRx;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using ViewModels;
+using Views;
 
 public sealed class Entrance : MonoBehaviour
 {
-    public event Action OnStart;
-    public event Action OnUpdate;
+    public AssetReference CanvasPrefab;
+    private ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>> _spawner;
     private void Start()
     {
-        OnStart?.Invoke();
+        _spawner = new ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>>();
+        PrepareObjectsOnStart();
     }
-    private void Update()
+    private async UniTask PrepareObjectsOnStart()
     {
-        OnUpdate?.Invoke();
+        TextViewModel viewModel = await _spawner.InstantiateViewAndGetViewModelAsync(CanvasPrefab, new TextViewModel());
+        viewModel.Text = new ReactiveProperty<string>("blablablabla");
     }
 }

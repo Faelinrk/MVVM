@@ -1,8 +1,9 @@
+using System;
 using UniRx;
 
 namespace Models
 {
-    public sealed class TextModel
+    public sealed class TextModel : IDisposable
     {
         private ReactiveProperty<string> text;
         public ReactiveProperty<string> Text
@@ -19,6 +20,11 @@ namespace Models
                 }
                 text = value;
             }
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }
