@@ -5,12 +5,12 @@ namespace Models
 {
     public sealed class TextModel : IDisposable
     {
-        private ReactiveProperty<string> text;
+        private ReactiveProperty<string> _text;
         public ReactiveProperty<string> Text
         {
             get
             {
-                return text;
+                return _text;
             }
             set
             {
@@ -18,7 +18,7 @@ namespace Models
                 {
                     return;
                 }
-                text = value;
+                _text = value;
             }
         }
 

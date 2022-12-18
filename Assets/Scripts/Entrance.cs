@@ -8,15 +8,20 @@ using Views;
 public sealed class Entrance : MonoBehaviour
 {
     public AssetReference CanvasPrefab;
-    private ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>> _spawner;
+    public AssetReference ProductPrefab;
+    private ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>> _textSpawner;
+    private ViewSpawner<PhysicsMovementView, PhysicsMovementViewModel, ReactiveProperty<Vector3>> _productSpawner;
     private void Start()
     {
-        _spawner = new ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>>();
-        PrepareObjectsOnStart();
+        _textSpawner = new ViewSpawner<TextView, TextViewModel, ReactiveProperty<string>>();
+        _productSpawner = new ViewSpawner<PhysicsMovementView, PhysicsMovementViewModel, ReactiveProperty<Vector3>>();
+        PrepareObjects();
     }
-    private async UniTask PrepareObjectsOnStart()
+    private async UniTask PrepareObjects()
     {
-        TextViewModel viewModel = await _spawner.InstantiateViewAndGetViewModelAsync(CanvasPrefab, new TextViewModel());
-        viewModel.Text = new ReactiveProperty<string>("blablablabla");
+        TextViewModel textViewModel = await _textSpawner.InstantiateViewAndGetViewModelAsync(CanvasPrefab, new TextViewModel());
+        PhysicsMovementViewModel physicsMovementViewModel = await _productSpawner.InstantiateViewAndGetViewModelAsync(ProductPrefab, new PhysicsMovementViewModel());
+        textViewModel.Text = new ReactiveProperty<string>("Testing for a moment...");
+        physicsMovementViewModel.MovementVector = new ReactiveProperty<Vector3>(new Vector3(Random.Range(-5,5), Random.Range(-5,5), Random.Range(-5,5)));
     }
 }

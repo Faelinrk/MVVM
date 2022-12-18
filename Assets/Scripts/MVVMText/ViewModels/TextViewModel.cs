@@ -1,31 +1,30 @@
+using Interfaces;
 using Models;
 using System;
 using UniRx;
-using UnityEngine.Events;
-using Interfaces;
 
 namespace ViewModels
 {
     public sealed class TextViewModel : IPropertyChangeObserver<ReactiveProperty<string>>, IDisposable
     {
-        TextModel textModel;
+        private TextModel _textModel;
 
         public event Action<ReactiveProperty<string>> OnPropertyChanged;
 
         public TextViewModel()
         {
-            textModel = new TextModel();
+            _textModel = new TextModel();
         }
         public ReactiveProperty<string> Text
         {
             get
             {
-                return textModel.Text;
+                return _textModel.Text;
             }
             set
             {
-                textModel.Text = value;
-                NotifyPropertyChanged(textModel.Text);
+                _textModel.Text = value;
+                NotifyPropertyChanged(_textModel.Text);
             }
         }
         public void NotifyPropertyChanged(ReactiveProperty<string> property)
@@ -35,7 +34,7 @@ namespace ViewModels
 
         public void Dispose()
         {
-            textModel.Dispose();
+            _textModel.Dispose();
         }
     }
 }
