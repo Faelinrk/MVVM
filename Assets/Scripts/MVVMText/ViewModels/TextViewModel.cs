@@ -5,17 +5,15 @@ using UniRx;
 
 namespace ViewModels
 {
-    public sealed class TextViewModel : IPropertyChangeObserver<ReactiveProperty<string>>, IDisposable
+    public sealed class TextViewModel : IPropertyChangeObserver<string>, IDisposable
     {
         private TextModel _textModel;
-
-        public event Action<ReactiveProperty<string>> OnPropertyChanged;
 
         public TextViewModel()
         {
             _textModel = new TextModel();
         }
-        public ReactiveProperty<string> Text
+        public ReactiveProperty<string> Property
         {
             get
             {
@@ -24,12 +22,7 @@ namespace ViewModels
             set
             {
                 _textModel.Text = value;
-                NotifyPropertyChanged(_textModel.Text);
             }
-        }
-        public void NotifyPropertyChanged(ReactiveProperty<string> property)
-        {
-            OnPropertyChanged?.Invoke(property);
         }
 
         public void Dispose()

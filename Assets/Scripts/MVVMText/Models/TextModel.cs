@@ -5,7 +5,7 @@ namespace Models
 {
     public sealed class TextModel : IDisposable
     {
-        private ReactiveProperty<string> _text;
+        private ReactiveProperty<string> _text = new ReactiveProperty<string>();
         public ReactiveProperty<string> Text
         {
             get

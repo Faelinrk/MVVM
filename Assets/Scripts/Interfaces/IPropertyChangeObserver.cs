@@ -1,10 +1,10 @@
 using System;
+using UniRx;
 
 namespace Interfaces
 {
     public interface IPropertyChangeObserver<T>
     {
-        event Action<T> OnPropertyChanged;
-        void NotifyPropertyChanged(T property);
+        public ReactiveProperty<T> Property { get; set; }
     }
 }

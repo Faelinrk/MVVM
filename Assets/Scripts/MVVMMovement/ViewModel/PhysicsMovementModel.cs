@@ -6,7 +6,7 @@ namespace Models
 {
     public sealed class PhysicsMovementModel : IDisposable
     {
-        private ReactiveProperty<Vector3> _movementVector;
+        private ReactiveProperty<Vector3> _movementVector = new ReactiveProperty<Vector3>();
         public ReactiveProperty<Vector3> MovementVector
         {
             get
